@@ -1,0 +1,321 @@
+body {
+  background-color: #2f2841;
+  color: #ffffff;
+  font-family: 'Noto Sans', sans-serif;
+  margin: 0;
+  padding-top: 80px;
+}
+
+/* HEADER */
+header {
+  background-color: #2f2841;
+  color: #00ff88;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  font-family: 'Noto Sans', sans-serif;
+}
+
+header .logo {
+  height: 130px;
+}
+
+header .user-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 58%;
+}
+
+header .user-info {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+header .logout-button {
+  background-color: #00ff8052;
+  border: 2px solid #00ff88;
+  font-size: 14px;
+  color: #00ff88;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-right: 45px;
+}
+
+header .logout-button:hover {
+  background-color: #00ff88;
+  color: #2f2841;
+}
+
+/* CORPO DO PROJETO */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* SEÇÕES DO DASHBOARD */
+.section {
+  background-color: #D2691E;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  flex: 1;
+  min-width: 280px;
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* TÍTULOS */
+.section h2 {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+/* CAMPOS DE FORMULÁRIO */
+input, select, textarea {
+  width: calc(100% - 20px); /* Uniformiza os campos, considerando o padding */
+  padding: 10px;
+  margin: 10px 0; /* Espaçamento consistente entre os campos */
+  border: 1px solid #00ff88;
+  border-radius: 5px;
+  background: #2f2841;
+  color: #ffffff;
+  font-size: 14px;
+  box-sizing: border-box; /* Inclui padding e borda no cálculo de largura */
+}
+
+textarea {
+  resize: none;
+  height: 120px; /* Ajuste para harmonizar com o design */
+}
+
+/* BOTÕES */
+button {
+  display: block; /* Alinha centralmente os botões */
+  margin: 20px auto; /* Espaçamento entre o botão e outros elementos */
+  background-color: #00ff88;
+  color: #2f2841;
+  border: none;
+  padding: 12px 20px; /* Uniformiza tamanho do botão */
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+button:hover {
+  background-color: #00cc66;
+}
+
+/* FORMULÁRIO */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaçamento uniforme entre os elementos */
+}
+
+form label {
+  font-size: 18px; /* Tamanho consistente para todos os rótulos */
+  color: white; /* Mantém a cor legível */
+}
+
+#lista-alunos {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 300px;  /* Limita a altura */
+  overflow-y: auto;  /* Adiciona um scroll vertical quando necessário */
+  padding-right: 5px;
+}
+
+/* Estilizar a barra de rolagem para ficar mais bonita */
+#lista-alunos::-webkit-scrollbar {
+  width: 8px;
+}
+
+#lista-alunos::-webkit-scrollbar-thumb {
+  background-color: #00ff88;
+  border-radius: 10px;
+}
+
+#lista-alunos::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.aluno-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2f2841;
+  padding: 10px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.aluno-nome {
+  font-weight: bold;
+  flex: 1;
+  text-align: left;
+}
+
+.presenca-opcoes {
+  display: flex;
+  gap: 15px;
+}
+
+.presenca-opcoes label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0, 255, 136, 0.3);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.presenca-opcoes label:hover {
+  background: rgba(0, 255, 136, 0.5);
+}
+
+.presenca-opcoes input {
+  accent-color: #00ff88;
+  transform: scale(1.2);
+}
+
+/* Diário de Classe */
+.diario-classe {
+  width: 60%;
+  margin: 20px;
+  padding: 20px;
+  background-color: #D2691E;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  justify-self: center;
+
+}
+
+.diario-classe h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #00ff88;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Tabela */
+.diario-classe table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.diario-classe table thead {
+  background-color: #2f2841;
+  color: white;
+}
+
+.diario-classe table thead th {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #00ff88;
+  font-size: 16px;
+}
+
+.diario-classe table tbody td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #00ff88;
+  font-size: 14px;
+}
+
+.diario-classe table tbody tr:nth-child(odd) {
+  background-color: #2f2841;
+}
+
+.diario-classe table tbody tr:nth-child(even) {
+  background-color: #2f2841;
+}
+
+/* Radio Button */
+.diario-classe input[type="radio"] {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+/* Botão */
+.diario-classe .botao-diario {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #00ff88;
+  color: #2f2841;
+  border: 2px solid #00ff88;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-bottom: 40px;
+}
+
+.diario-classe .botao-diario:hover {
+  background-color: #00cc66;
+}
+
+footer {
+  background-color: #2f2841; /* Mesma cor de fundo do header */
+  color: #00ff88; /* Cor do texto */
+  text-align: center;
+  padding: 10px 20px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  position: fixed; /* Fixa o footer na parte inferior */
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1); /* Sombra no topo */
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .section {
+    max-width: 100%;
+    min-width: auto;
+  }
+
+  header .user-info {
+    font-size: 16px;
+  }
+
+  header .logout-button {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
+  .diario-classe {
+    width: 95%;
+  }
+}
