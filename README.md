@@ -4,7 +4,7 @@ Os professores tem as seguintes funcionalidades : Relatório Diario, Presença, 
 
 O site conta com um sistema de login e integração com um banco de dados onde se armazenam as informações dos alunos. (Todos os dados nesse github são ficticios, apenas para demonstração).
 
-Não colocarei nomes nem dados de professores reais para não comprometer informações pessoais do cólegio, porém o codigo está disponivel para aprendizado de quem desejar.
+Não colocarei nomes nem dados de professores reais para não comprometer informações pessoais do colégio, porém o codigo está disponivel para aprendizado de quem desejar.
 
 Qualquer duvida entrar em contato comigo pelo Linkedin. (Link no meu Profile)
 
