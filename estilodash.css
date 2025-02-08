@@ -9,7 +9,7 @@ body {
 /* HEADER */
 header {
   background-color: #2f2841;
-  color: #00ff88;
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,6 +55,57 @@ header .logout-button:hover {
   background-color: #00ff88;
   color: #2f2841;
 }
+
+/* Estilização da seção Planejamento Anual */
+.planejamento-anual {
+  background-color: #d96b17;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  max-width: 600px; /* Ajustando para caber melhor */
+  text-align: center;
+  margin-bottom: 10vh;
+}
+
+/* Estilização da tabela */
+.planejamento-anual table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #2f2841;
+}
+
+.planejamento-anual th, 
+.planejamento-anual td {
+  border: 2px solid #00ff88; /* Cor da borda */
+  padding: 10px;
+  font-size: 14px;
+}
+
+.planejamento-anual th {
+  background-color: #2f2841;
+  color: white;
+  font-weight: bold;
+}
+
+/* Botão ajustado */
+.btn-planejamento {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00ff88;
+  color: #2f2841;
+  cursor: pointer;
+}
+
+.btn-planejamento:hover {
+  background-color: #00cc70;
+}
+
+
 
 /* CORPO DO PROJETO */
 .container {
@@ -213,10 +264,10 @@ form label {
 
 }
 
-.diario-classe h2 {
+.diario-classe h2{
   margin-bottom: 20px;
   text-align: center;
-  color: #00ff88;
+  color: white;
   font-size: 24px;
   font-weight: bold;
 }

@@ -1,0 +1,218 @@
+body {
+  background-color: #2f2841;
+  color: #ffffff;
+  font-family: 'Noto Sans', sans-serif;
+  margin: 0;
+  padding-top: 80px;
+}
+
+/* HEADER */
+header {
+  background-color: #2f2841;
+  color: #00ff88;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  font-family: 'Noto Sans', sans-serif;
+}
+
+header .logo {
+  height: 130px;
+}
+
+header .user-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 58%;
+}
+
+header .user-info {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+header .logout-button {
+  background-color: #00ff8052;
+  border: 2px solid #00ff88;
+  font-size: 14px;
+  color: #00ff88;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-right: 45px;
+}
+
+header .logout-button:hover {
+  background-color: #00ff88;
+  color: #2f2841;
+}
+
+h2 {
+  font-size: 24px; /* Aumenta a legibilidade */
+  font-weight: bold; /* Deixa o texto mais destacado */
+  color: #00ff88; /* Mantém a cor em harmonia com o tema */
+  text-align: center; /* Centraliza o título */
+  padding: 10px; /* Adiciona um espaçamento para não ficar colado */
+  border-bottom: 2px solid #00ff8052; /* Adiciona uma linha sutil abaixo */
+  margin-bottom: 20px; /* Dá mais espaço abaixo do título */
+}
+
+.back-button {
+  background-color: #00ff8052; /* Cor principal */
+  border: 2px solid #00ff88;
+  padding: 5px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #00ff88;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin-left: 65vh;
+}
+
+.back-button:hover {
+  background-color: #00ff88;
+  color: #2f2841; /* Cor ao passar o mouse */
+}
+
+/* Ajusta o conteúdo principal */
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #d96b17;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid #00ff88;
+}
+
+/* Título principal */
+h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #00ff88;
+  margin-bottom: 20px;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Labels */
+label {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #00ff88;
+}
+
+/* Estilizando os selects */
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #00ff88;
+  border-radius: 5px;
+  background: #2f2841;
+  color: white;
+  cursor: pointer;
+}
+
+/* Conteúdo do planejamento */
+#conteudo_dinamico {
+  margin-top: 20px;
+  padding: 15px;
+  background: #2f2841;
+  border-radius: 8px;
+  border: 2px solid #00ff88;
+  box-shadow: 0px 2px 6px rgba(0, 255, 136, 0.3);
+}
+
+/* Títulos dos conteúdos */
+h3 {
+  font-size: 20px;
+  color: #00ff88;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 20px;
+  color: #00ff88;
+  margin-bottom: 10px;
+}
+
+/* Lista de checkboxes */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: white;
+}
+
+/* Estilo das checkboxes */
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #00ff88;
+  cursor: pointer;
+}
+
+/* Caixa de Avaliação */
+textarea {
+  width: 100%;
+  height: 100px;
+  font-size: 16px;
+  border: 2px solid #00ff88;
+  border-radius: 5px;
+  background: #2f2841;
+  color: white;
+  resize: none;
+  box-sizing: border-box;
+  
+}
+
+/* Botão de Envio */
+button {
+  padding: 12px;
+  font-size: 18px;
+  color: #2f2841;
+  background: #00ff88;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #00cc70;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  main {
+      width: 90%;
+  }
+
+  select, textarea, button {
+      font-size: 16px;
+  }
+}

@@ -1,4 +1,70 @@
-else if (bimestre === "2" && campoAprendizado === "tracos") {
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION["user_id"])) {
+    header("Location: index.html");
+    exit();
+}
+
+// Verifica se a faixa etária foi selecionada
+if (!isset($_POST["faixa_etaria"])) {
+    header("Location: dashboard.php");
+    exit();
+}
+
+$faixa_etaria = $_POST["faixa_etaria"];
+
+$faixas_etarias_legiveis = [
+    "0-1a6m"   => "0 a 1 ano e 6 meses",
+    "1a7m-3a11m" => "1 ano e 7 meses - 3 anos e 11 meses",
+    "4a-5a11m" => "4 anos - 5 anos e 11 meses"
+];
+
+$faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas_etarias_legiveis[$faixa_etaria] : $faixa_etaria;
+
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento Anual</title>
+    <link rel="stylesheet" href="./estiloplanejamento.css">
+    <script>
+        function atualizarConteudo() {
+        var bimestre = document.getElementById("bimestre").value;
+        var campoAprendizado = document.getElementById("campo_aprendizado").value;
+        var conteudo = document.getElementById("conteudo_dinamico");
+
+        if (bimestre === "1" && campoAprendizado === "tracos") {
+            conteudo.innerHTML = `
+                <h3>Traços, sons, cores e formas - 1º Bimestre</h3>
+                <p>Selecione os conteúdos explorados:</p>
+                <ul>
+                    <li><input type="checkbox" name="conteudos[]" value="EI01TS01"> (EI01TS01) Explorar sons produzidos com o próprio corpo e com objetos do ambiente.</li>
+                    <li><input type="checkbox" name="conteudos[]" value="EI01TS02"> (EI01TS02) Traçar marcas gráficas, em diferentes suportes, usando instrumentos riscantes e tintas.</li>
+                    <li><input type="checkbox" name="conteudos[]" value="EI01TS03"> (EI01TS03) Explorar diferentes fontes sonoras e materiais para acompanhar brincadeiras cantadas, canções, músicas e melodias.</li>
+                    <li><input type="checkbox" name="conteudos[]" value="EI01TS04"> (EI01TS04) Perceber a intensidade dos sons e dos ritmos, movimentando-se de acordo com a melodia.</li>
+                </ul>
+                <h4>Propostas de Exploração</h4>
+
+                <p>
+                        - Explorar de diversos instrumentos musicais, relacionando-os com sua origem. <br> <br> 
+                        - Brincadeiras, como formas de perceber, reconhecer e significar as diversas experiências com texturas e elementos, como água e terra, barro, tintas, feitas de alimentos e plantas, e outros. <br> <br> 
+                        - Criação de sons com as mãos, papel amassado, bater na água, o balançar de objetos dentre outros. <br> <br> 
+                        - Experimentação de brincadeiras que explorem movimentos e sons com o próprio corpo. <br> <br> 
+                        - Utilização de móbiles com materiais sonoros (chaves, colheres, chocalhos, entre outros). <br> <br> 
+                        - Brincadeira do Cesto de tesouros com objetos sonoros (chocalhos, panela, colher de pau, copos, sacolas, plástico bolha, apitos, lata, bacia, concha, caixas, tampa de panelas, rolo de papel toalha, garrafas PET). <br> <br> 
+                        - Realização de pintura em diversos suportes (parede, cartaz, papel, chão, entre outros), utilizando instrumentos variados (pincel de barbear, buchas, trinchas, buchas vegetais, rolinhos, entre outros). <br> <br> 
+                        - Vivências culturais musicais de acordo com as festividades regionais (Carnaval – Frevo, Maracatu, Caboclinho, São João – Xaxado, Coco, Quadrilha, forró). <br> <br>
+                </p>
+
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes"></textarea>
+            `;
+        } else if (bimestre === "2" && campoAprendizado === "tracos") {
             conteudo.innerHTML = `
                 <h3>Traços, sons, cores e formas - 2º Bimestre</h3>
                 <p>Selecione os conteúdos explorados:</p>
@@ -19,8 +85,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
                         - Brincadeiras cantadas com diferentes ritmos (A dona aranha, O sítio do seu Lobato, A canoa virou, Pirulito que bate, bate Formiguinha, entre outras). <br> <br> 
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         }  else if (bimestre === "3" && campoAprendizado === "tracos") {
             conteudo.innerHTML = `
@@ -45,8 +111,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
                         - Utilização de fontes sonoras, recursos tecnológicos, audiovisuais e multimídia como: CD’s, DVD’s, TV’s, vídeos, gravador, internet, entre outros. <br> <br>
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         }  else if (bimestre === "4" && campoAprendizado === "tracos") {
             conteudo.innerHTML = `
@@ -68,8 +134,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
                         - Experimentação de diferentes suportes (papelão, tecido, areia, lixa, entre outros), e instrumentos (bastão de cera, pincel atômico, carvão, gravetos, entre outros) na produção artística.  <br> <br>
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "1" && campoAprendizado === "eu") {
             conteudo.innerHTML = `
@@ -87,8 +153,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
                         - Brincadeiras e jogos que proporcionem regras de convivência em grupo;  <br> <br>
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "2" && campoAprendizado === "eu") {
             conteudo.innerHTML = `
@@ -107,8 +173,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
                         
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "3" && campoAprendizado === "eu") {
             conteudo.innerHTML = `
@@ -127,8 +193,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
                         
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "4" && campoAprendizado === "eu") {
             conteudo.innerHTML = `
@@ -147,8 +213,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
 
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "1" && campoAprendizado === "corpo") {
             conteudo.innerHTML = `
@@ -167,8 +233,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
                         
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "2" && campoAprendizado === "corpo") {
             conteudo.innerHTML = `
@@ -187,8 +253,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
 
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "3" && campoAprendizado === "corpo") {
             conteudo.innerHTML = `
@@ -207,8 +273,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
 
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "4" && campoAprendizado === "corpo") {
             conteudo.innerHTML = `
@@ -226,8 +292,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
 
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "1" && campoAprendizado === "escuta") {
             conteudo.innerHTML = `
@@ -247,8 +313,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
 
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "2" && campoAprendizado === "escuta") {
             conteudo.innerHTML = `
@@ -269,8 +335,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
 
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "3" && campoAprendizado === "escuta") {
             conteudo.innerHTML = `
@@ -290,8 +356,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
         
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "4" && campoAprendizado === "escuta") {
             conteudo.innerHTML = `
@@ -311,8 +377,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
 
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "1" && campoAprendizado === "espacos") {
             conteudo.innerHTML = `
@@ -333,8 +399,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
                         - Resolução de situações problemas que mobilizem as noções de tirar, acrescentar, dividir ou outras;  <br> <br>
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "2" && campoAprendizado === "espacos") {
             conteudo.innerHTML = `
@@ -354,8 +420,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
 
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "3" && campoAprendizado === "espacos") {
             conteudo.innerHTML = `
@@ -375,8 +441,8 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
 
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         } else if (bimestre === "4" && campoAprendizado === "espacos") {
             conteudo.innerHTML = `
@@ -395,11 +461,58 @@ else if (bimestre === "2" && campoAprendizado === "tracos") {
 
                 </p>
 
-                <label for="avaliacao">Avaliação do Professor:</label>
-                <textarea id="avaliacao" name="avaliacao" required></textarea>
+                <label for="observacoes">Avaliação do Professor:</label>
+                <textarea id="observacoes" name="observacoes" required></textarea>
             `;
         }
-
-
         
-                
+        else {
+            conteudo.innerHTML = "<p>Selecione um bimestre e um campo de aprendizado para exibir os conteúdos.</p>";
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="planetinha.png" alt="Logo do Colégio" class="logo">
+        <div class="user-area">
+            <span class="user-info">Bem-vindo: <?php echo htmlspecialchars($_SESSION['login']); ?></span>
+            <button onclick="history.back()" class="back-button">Voltar</button>
+            <button class="logout-button" onclick="window.location.href='logout.php'">Sair</button>
+        </div>
+    </header>
+    
+    <main>
+        <h2>Planejamento Anual - Faixa Etária: <?php echo htmlspecialchars($faixa_etaria_legivel); ?></h2>
+
+        <form action="salvar_planejamento.php" method="POST">
+            <input type="hidden" name="faixa_etaria" value="<?php echo htmlspecialchars($faixa_etaria); ?>">
+
+            <label for="bimestre">Selecione o Bimestre:</label>
+            <select id="bimestre" name="bimestre" onchange="atualizarConteudo()" required>
+                <option value="">Selecione...</option>
+                <option value="1">1º Bimestre</option>
+                <option value="2">2º Bimestre</option>
+                <option value="3">3º Bimestre</option>
+                <option value="4">4º Bimestre</option>
+            </select>
+
+            <label for="campo_aprendizado">Selecione o Campo de Aprendizado:</label>
+            <select id="campo_aprendizado" name="campo_aprendizado" onchange="atualizarConteudo()" required>
+                <option value="">Selecione...</option>
+                <option value="tracos">Traço, sons, cores e formas</option>
+                <option value="eu">Eu, o outro e o nós</option>
+                <option value="corpo">Corpo, gestos e movimentos</option>
+                <option value="escuta">Escuta, fala, pensamento e imaginação</option>
+                <option value="espacos">Espaços, tempos, quantidades, relações e transformações</option>
+            </select>
+
+            <div id="conteudo_dinamico">
+                <p>Selecione um bimestre e um campo de aprendizado para exibir os conteúdos.</p>
+            </div>
+
+            <button type="submit">Salvar Planejamento</button>
+        </form>
+    </main>
+</body>
+</html>

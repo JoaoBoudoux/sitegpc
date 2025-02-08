@@ -164,7 +164,7 @@ if (isset($_POST['turma'])) {
                 </select>
 
                 <label for="aluno-estudantil">Selecione o aluno:</label>
-                <select id="aluno-estudantil" name="aluno-estudantil" disabled required>
+                <select id="aluno-estudantil" name="aluno-estudantil" required>
                     <option value="">Selecione uma turma primeiro</option>
                 </select>
 
@@ -205,7 +205,7 @@ if (isset($_POST['turma'])) {
                     });
             } else {
                 alunoSelect.innerHTML = '<option value="">Selecione a turma primeiro</option>';
-                alunoSelect.disabled = true;
+                alunoSelect.disabled = false;
             }
         });
         </script>
@@ -253,7 +253,7 @@ if (isset($_POST['turma'])) {
     </script>
 
 <div class="diario-classe">
-    <h2>Diário de Classe</h2>
+    <h2 class="titulodiario">Diário de Classe</h2>
     <form id="diarioForm" action="diario_classe.php" method="POST">
         <table>
             <thead>
@@ -286,6 +286,37 @@ if (isset($_POST['turma'])) {
         <button class="botao-diario" type="submit">Continuar</button>
     </form>
 </div>
+
+
+<div class="planejamento-anual">
+    <h2>Planejamento Anual</h2>
+    <form action="planejamento.php" method="POST">
+    <table>
+        <thead>
+            <tr>
+                <th>Faixa Etária</th>
+                <th>Selecionar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0 a 1 ano e 6 meses</td>
+                <td><input type="radio" name="faixa_etaria" value="0-1a6m" required></td>
+            </tr>
+            <tr>
+                <td>1 ano e 7 meses a 3 anos e 11 meses</td>
+                <td><input type="radio" name="faixa_etaria" value="1a7m-3a11m"></td>
+            </tr>
+            <tr>
+                <td>4 anos a 5 anos e 11 meses</td>
+                <td><input type="radio" name="faixa_etaria" value="4a-5a11m"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit" class="btn-planejamento">Prosseguir</button>
+</form>
+</div>
+
 </body>
 <footer>
   <p>Todos os direitos reservados © 2025 Colégio Geração Planeta Criança</p>
