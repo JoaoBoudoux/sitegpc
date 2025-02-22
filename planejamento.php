@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-// Verifica se o usuário está logado
+
 if (!isset($_SESSION["user_id"])) {
     header("Location: index.html");
     exit();
 }
 
-// Verifica se a faixa etária foi selecionada
+
 if (!isset($_POST["faixa_etaria"])) {
     header("Location: dashboard.php");
     exit();
@@ -31,7 +31,7 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planejamento Anual</title>
-    <link rel="stylesheet" href="./estiloplanejamento.css">
+    <link rel="stylesheet" href="./estiloplan.css">
     <script>
         function atualizarConteudo() {
         var bimestre = document.getElementById("bimestre").value;
@@ -40,8 +40,19 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
 
         if (bimestre === "1" && campoAprendizado === "tracos") {
             conteudo.innerHTML = `
-                <h3>Traços, sons, cores e formas - 1º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+                <h3>Traços, sons, cores e formas - 1º Bimestre</h3> <br>
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01TS01"> (EI01TS01) Explorar sons produzidos com o próprio corpo e com objetos do ambiente.</li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01TS02"> (EI01TS02) Traçar marcas gráficas, em diferentes suportes, usando instrumentos riscantes e tintas.</li>
@@ -67,7 +78,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "2" && campoAprendizado === "tracos") {
             conteudo.innerHTML = `
                 <h3>Traços, sons, cores e formas - 2º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01TS03"> (EI01TS03) Explorar diferentes fontes sonoras e materiais para acompanhar brincadeiras cantadas, canções, músicas e melodias; </li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01TS02"> (EI01TS02) Traçar marcas gráficas, em diferentes suportes, usando instrumentos riscantes e tintas; </li>
@@ -91,7 +113,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         }  else if (bimestre === "3" && campoAprendizado === "tracos") {
             conteudo.innerHTML = `
                 <h3>Traços, sons, cores e formas - 3º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01TS03"> (EI01TS03) Explorar diferentes fontes sonoras e materiais para acompanhar brincadeiras cantadas, canções, músicas e melodias; </li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01TS01"> (EI01TS01) Explorar sons produzidos com o próprio corpo e com objetos do ambiente; </li>
@@ -117,7 +150,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         }  else if (bimestre === "4" && campoAprendizado === "tracos") {
             conteudo.innerHTML = `
                 <h3>Traços, sons, cores e formas - 4º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01TS01"> (EI01TS03) Explorar diferentes fontes sonoras e materiais para acompanhar brincadeiras cantadas, canções, músicas e melodias; </li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01TS02"> (EI01TS02) Traçar marcas gráficas, em diferentes suportes, usando instrumentos riscantes e tintas; </li>
@@ -140,7 +184,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "1" && campoAprendizado === "eu") {
             conteudo.innerHTML = `
                 <h3>Eu, o outro e o nós - 1º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01EO03"> (EI01EO03) Interagir com crianças da mesma faixa etária e adultos ao explorar espaços, materiais, objetos, brinquedos;  </li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01EO01"> (EI01EO01) Perceber que suas ações têm efeitos nas outras crianças e nos adultos;  </li>
@@ -159,7 +214,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "2" && campoAprendizado === "eu") {
             conteudo.innerHTML = `
                 <h3>Eu, o outro e o nós - 2º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01EO04"> (EI01EO04) Comunicar necessidades, desejos e emoções, utilizando gestos, balbucios, palavras;  </li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01EO06"> (EI01EO06) Interagir com outras crianças da mesma faixa etária e adultos, adaptando-se ao convívio social;  </li>
@@ -179,7 +245,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "3" && campoAprendizado === "eu") {
             conteudo.innerHTML = `
                 <h3>Eu, o outro e o nós - 3º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01EO02"> (EI01EO02) Perceber as possibilidades e os limites de seu corpo nas brincadeiras e interações das quais participa;  </li>
                     
@@ -199,7 +276,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "4" && campoAprendizado === "eu") {
             conteudo.innerHTML = `
                 <h3>Eu, o outro e o nós - 4º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01EO05"> (EI01EO05) Reconhecer seu corpo e expressar suas sensações em momentos de alimentação, higiene, brincadeira e descanso;  </li>
                     
@@ -219,7 +307,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "1" && campoAprendizado === "corpo") {
             conteudo.innerHTML = `
                 <h3>Corpo, gestos e movimentos - 1º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01CG01"> (EI01CG01) Movimentar as partes do corpo para exprimir corporalmente emoções, necessidades e desejos;  </li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01CG03"> (EI01CG03) Imitar gestos e movimentos de outras crianças, adultos e animais;  </li>
@@ -239,7 +338,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "2" && campoAprendizado === "corpo") {
             conteudo.innerHTML = `
                 <h3>Corpo, gestos e movimentos - 2º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01CG02"> (EI01CG02) Experimentar as possibilidades corporais nas brincadeiras e interações em ambientes acolhedores e desafiantes;  </li>
 
@@ -259,7 +369,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "3" && campoAprendizado === "corpo") {
             conteudo.innerHTML = `
                 <h3>Corpo, gestos e movimentos - 3º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01CG04"> (EI01CG04) Participar do cuidado do seu corpo e da promoção do seu bem-estar;  </li>
 
@@ -279,7 +400,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "4" && campoAprendizado === "corpo") {
             conteudo.innerHTML = `
                 <h3>Corpo, gestos e movimentos - 4º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01CG05"> (EI01CG05) Utilizar os movimentos de preensão, encaixe e lançamento, ampliando suas possibilidades de manuseio de diferentes materiais e objetos;  </li>
 
@@ -298,7 +430,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "1" && campoAprendizado === "escuta") {
             conteudo.innerHTML = `
                 <h3>Escuta, fala, pensamento e imaginação - 1º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01EF01"> (EI01EF01) Reconhecer quando é chamado por seu nome e reconhecer os nomes de pessoas com quem convive;  </li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01EF02"> (EI01EF02) Demonstrar interesse ao ouvir a leitura de poemas e a apresentação de músicas;  </li>
@@ -319,7 +462,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "2" && campoAprendizado === "escuta") {
             conteudo.innerHTML = `
                 <h3>Escuta, fala, pensamento e imaginação - 2º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01EF03"> (EI01EF03) Demonstrar interesse ao ouvir histórias lidas ou contadas, observando ilustrações e os movimentos de leitura do adulto-leitor (modo de segurar o portador e de virar as páginas);  </li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01EF07"> (EI01EF07) Conhecer e manipular materiais impressos e audiovisuais em diferentes portadores (livro, revista, gibi, jornal, cartaz, CD, tablet etc.);  </li>
@@ -341,7 +495,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "3" && campoAprendizado === "escuta") {
             conteudo.innerHTML = `
                 <h3>Escuta, fala, pensamento e imaginação - 3º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01EF04"> (EI01EF04) Reconhecer elementos das ilustrações de histórias, apontando-os, a pedido do adulto-leitor;  </li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01EF05"> (EI01EF05) Imitar as variações de entonação e gestos realizados pelos adultos, ao ler histórias e ao cantar;  </li>
@@ -362,7 +527,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "4" && campoAprendizado === "escuta") {
             conteudo.innerHTML = `
                 <h3>Escuta, fala, pensamento e imaginação - 4º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01EF06"> (EI01EF06) Comunicar-se com outras pessoas usando movimentos, gestos, balbucios, fala e outras formas de expressão;  </li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01EF08"> (EI01EF08) Participar de situações de escuta de textos em diferentes gêneros textuais (poemas, fábulas, contos, receitas, quadrinhos, anúncios etc.);  </li>
@@ -383,7 +559,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "1" && campoAprendizado === "espacos") {
             conteudo.innerHTML = `
                 <h3>Espaços, tempos, quantidades, relações e transformações - 1º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01ET01"> (EI01ET01) Explorar e descobrir as propriedades de objetos e materiais (odor, cor, sabor, temperatura);  </li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01ET02">(EI01ET02) Explorar relações de causa e efeito (transbordar, tingir, misturar, mover e remover etc.) na interação com o mundo físico;  </li>
@@ -405,7 +592,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "2" && campoAprendizado === "espacos") {
             conteudo.innerHTML = `
                 <h3>Espaços, tempos, quantidades, relações e transformações - 2º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01ET03"> (EI01ET03) Explorar o ambiente pela ação e observação, manipulando, experimentando e fazendo descobertas;  </li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01ET05"> (EI01ET05) Manipular materiais diversos e variados para comparar as diferenças e semelhanças entre eles;  </li>
@@ -426,7 +624,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "3" && campoAprendizado === "espacos") {
             conteudo.innerHTML = `
                 <h3>Espaços, tempos, quantidades, relações e transformações - 3º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01ET04"> (EI01ET04) Manipular, experimentar, arrumar e explorar o espaço por meio de experiências de deslocamentos de si e dos objetos;  </li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01ET03"> (EI01ET03) Explorar o ambiente pela ação e observação, manipulando, experimentando e fazendo descobertas;  </li>
@@ -447,7 +656,18 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         } else if (bimestre === "4" && campoAprendizado === "espacos") {
             conteudo.innerHTML = `
                 <h3>Espaços, tempos, quantidades, relações e transformações - 4º Bimestre</h3>
-                <p>Selecione os conteúdos explorados:</p>
+
+                <p>
+                <h4>DIREITOS DE APRENDIZAGEM E DESENVOLVIMENTO:</h4> <br> <br>
+
+                -   Conviver com outras crianças e adultos, em pequenos e grandes grupos, utilizando diferentes linguagens, ampliando o conhecimento de si e do outro, o respeito em relação à cultura e às diferenças entre as pessoas. <br> <br>
+                -   Brincar cotidianamente de diversas formas, em diferentes espaços e tempos, com diferentes parceiros (crianças e adultos), ampliando e diversificando seu acesso a produções culturais, seus conhecimentos, sua imaginação, sua criatividade, suas experiências emocionais, corporais, sensoriais, expressivas, cognitivas, sociais e relacionais. <br> <br>
+                -   Participar ativamente, com adultos e outras crianças, tanto do planejamento da gestão da escola e das atividades propostas pelo educador quanto da realização das atividades da vida cotidiana, tais como a escolha das brincadeiras, dos materiais e dos ambientes, desenvolvendo diferentes linguagens e elaborando conhecimentos, decidindo e se posicionando. <br> <br>
+                -   Explorar movimentos, gestos, sons, formas, texturas, cores, palavras, emoções, transformações, relacionamentos, histórias, objetos, elementos da natureza, na escola e fora dela, ampliando seus saberes sobre a cultura, em suas diversas modalidades: as artes, a escrita, a ciência e a tecnologia. <br> <br>
+                -   Expressar, como sujeito dialógico, criativo e sensível, suas necessidades, emoções, sentimentos, dúvidas, hipóteses, descobertas, opiniões, questionamentos, por meio de diferentes linguagens. <br> <br>
+                -   Conhecer-se e construir sua identidade pessoal, social e cultural, constituindo uma imagem positiva de si e de seus grupos de pertencimento, nas diversas experiências de cuidados, interações, brincadeiras e linguagens vivenciadas na instituição escolar e em seu contexto familiar e comunitário.  <br> <br>
+                </p>
+                <h4>Selecione os conteúdos explorados:</h4>
                 <ul>
                     <li><input type="checkbox" name="conteudos[]" value="EI01ET06"> (EI01ET06) Vivenciar diferentes ritmos, velocidades e fluxos nas interações e brincadeiras (em danças, balanços, escorregadores etc.);  </li>
                     <li><input type="checkbox" name="conteudos[]" value="EI01ET02"> (EI01ET02) Explorar relações de causa e efeito (transbordar, tingir, misturar, mover e remover etc.) na interação com o mundo físico;  </li>
@@ -477,7 +697,7 @@ $faixa_etaria_legivel = isset($faixas_etarias_legiveis[$faixa_etaria]) ? $faixas
         <img src="planetinha.png" alt="Logo do Colégio" class="logo">
         <div class="user-area">
             <span class="user-info">Bem-vindo: <?php echo htmlspecialchars($_SESSION['login']); ?></span>
-            <button onclick="history.back()" class="back-button">Voltar</button>
+            <button onclick="window.location.href='dashboard.php'" class="back-button">Voltar</button>
             <button class="logout-button" onclick="window.location.href='logout.php'">Sair</button>
         </div>
     </header>

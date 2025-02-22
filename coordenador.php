@@ -23,10 +23,13 @@ if (!isset($_SESSION["user_id"]) || $_SESSION["tipo"] !== "coordenador") {
     </header>
 
     <ul>
-        <li><a href="baixar_dados.php">📥 Baixar Dados do Banco</a></li>
-        <li><a href="dashboard.php">📌 Ir para o Portal dos Professores</a></li>
-        <li><a href="register.php">📝 Registrar Novo Usuário</a></li>
+    <li><a href="baixar_dados.php">📥 Baixar Dados do Banco</a></li>
+    <li><a href="dashboard.php">📌 Ir para o Portal dos Professores</a></li>
+    <li><a href="alterar_senha.php">🔑 Alterar Senha</a></li>
+    <li><a href="register.php">📝 Registrar Novo Usuário</a></li>
+    <li><a href="cadastrar_aluno.php">📚 Cadastrar Aluno</a></li>
     </ul>
+
 
 </body>
 </html>

@@ -17,10 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $faixa_etaria = $_POST["faixa_etaria"];
     $bimestre = intval($_POST["bimestre"]);
     $campo_aprendizado = $_POST["campo_aprendizado"];
-    $conteudos = implode(", ", $_POST["conteudos"]); // Converte array para string
+    $conteudos = implode(", ", $_POST["conteudos"]); 
     $observacoes = isset($_POST["observacoes"]) ? $_POST["observacoes"] : "";
 
-    // Verifica se já existe um planejamento salvo para esse professor, faixa etária, bimestre e campo de aprendizado
+   
     $stmt = $conn->prepare("
         SELECT id FROM planejamento_anual 
         WHERE users_id = ? AND faixa_etaria = ? AND bimestre = ? AND campo_aprendizado = ?
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        // Atualiza os dados existentes
+        
         $stmt = $conn->prepare("
             UPDATE planejamento_anual 
             SET conteudos = ?, observacoes = ?, atualizado_em = CURRENT_TIMESTAMP 
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ");
         $stmt->bind_param("ssissi", $conteudos, $observacoes, $professor_id, $faixa_etaria, $bimestre, $campo_aprendizado);
     } else {
-        // Insere novos dados
+        
         $stmt = $conn->prepare("
             INSERT INTO planejamento_anual (users_id, faixa_etaria, bimestre, campo_aprendizado, conteudos, observacoes) 
             VALUES (?, ?, ?, ?, ?, ?)

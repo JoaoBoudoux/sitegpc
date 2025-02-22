@@ -19,7 +19,7 @@ if (empty($turma_id) || empty($objetivos)) {
     die("Erro: Dados do formulário ausentes.");
 }
 
-// Prepare a query para salvar ou atualizar os dados
+
 $stmt = $conn->prepare("
     INSERT INTO avaliacoes_professores (users_id, turma_id, objetivo_aprendizagem, bimestre_1, bimestre_2, bimestre_3, bimestre_4)
     VALUES (?, ?, ?, ?, ?, ?, ?)

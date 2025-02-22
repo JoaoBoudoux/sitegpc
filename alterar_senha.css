@@ -98,8 +98,6 @@ h2 {
 form {
   background-color: grey;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
   padding: 30px;
   width: 50%;
   margin: auto;
@@ -139,4 +137,9 @@ button {
 
 button:hover {
   background-color: #00cc6a;
+}
+
+input {
+  width: 100%;
+  
 }

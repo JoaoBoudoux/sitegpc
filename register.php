@@ -10,9 +10,9 @@ if (!isset($_SESSION["user_id"])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login = $_POST["login"];
     $senha = $_POST["senha"];
-    $tipo = $_POST["tipo"]; // Obtém o tipo de usuário (professor ou coordenador)
+    $tipo = $_POST["tipo"]; 
 
-    // Verifica se o usuário já está cadastrado
+    
     $stmt = $conn->prepare("SELECT id FROM users WHERE login = ?");
     $stmt->bind_param("s", $login);
     $stmt->execute();
@@ -21,10 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->num_rows > 0) {
         echo "Usuário já cadastrado!";
     } else {
-        // Criptografa a senha
+        
         $hashed_password = password_hash($senha, PASSWORD_DEFAULT);
 
-        // Insere o usuário no banco de dados com o tipo
+        
         $stmt = $conn->prepare("INSERT INTO users (login, senha, tipo) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $login, $hashed_password, $tipo);
 
@@ -54,6 +54,7 @@ $conn->close();
      <img src="planetinha.png" alt="Logo do Colégio" class="logo">
      <div class="user-area">
          <span class="user-info">Bem-vindo: <?php echo $_SESSION['login']; ?></span>
+         <button onclick="window.location.href='coordenador.php'" class="back-button">Voltar</button>
          <button class="logout-button" onclick="window.location.href='logout.php'">Sair</button>
      </div>
     </header>

@@ -8,11 +8,11 @@ if (!isset($_SESSION["user_id"])) {
 }
 
 $user_id = $_SESSION["user_id"];
-$turma_id = $_POST['turma'] ?? ''; // Turma selecionada
+$turma_id = $_POST['turma'] ?? ''; 
 
 $turma_nome = "";
 
-// Buscar o nome da turma
+
 if (!empty($turma_id)) {
     $stmt = $conn->prepare("SELECT nome FROM turmas WHERE id = ?");
     $stmt->bind_param("i", $turma_id);
@@ -25,7 +25,7 @@ if (!empty($turma_id)) {
     $stmt->close();
 }
 
-// Buscar avaliações salvas anteriormente para essa turma e professor
+
 $dados_salvos = [];
 $stmt = $conn->prepare("SELECT objetivo_aprendizagem, bimestre_1, bimestre_2, bimestre_3, bimestre_4 
                         FROM avaliacoes_professores 
@@ -184,7 +184,7 @@ $objetivos_5 = ["(ET01) Relacionar-se com o meio ambiente, explorando os diferen
         <img src="planetinha.png" alt="Logo do Colégio" class="logo">
         <div class="user-area">
             <span class="user-info">Bem-vindo: <?php echo $_SESSION['login']; ?></span>
-            <button onclick="history.back()" class="back-button">Voltar</button>
+            <button onclick="window.location.href='dashboard.php'" class="back-button">Voltar</button>
             <button class="logout-button" onclick="window.location.href='logout.php'">Sair</button>
         </div>
     </header>

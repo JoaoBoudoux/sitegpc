@@ -18,12 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($senha, $hashed_password)) {
             $_SESSION["user_id"] = $id;
             $_SESSION["login"] = $login;
-            $_SESSION["tipo"] = $tipo; // Armazena o tipo de usuário
+            $_SESSION["tipo"] = $tipo; 
 
             if ($tipo === "coordenador") {
-                header("Location: coordenador.php"); // Redireciona para a página do coordenador
+                header("Location: coordenador.php"); 
             } else {
-                header("Location: dashboard.php"); // Redireciona para o portal dos professores
+                header("Location: dashboard.php"); 
             }
             exit();
         } else {

@@ -4,7 +4,7 @@ include_once('config.php');
 if (isset($_GET['turma_id'])) {
     $turma_id = $_GET['turma_id'];
 
-    // Consulta os alunos da turma selecionada
+    // consultar os alunos 
     $stmt = $conn->prepare("SELECT id, nome FROM alunos WHERE turma_id = ?");
     $stmt->bind_param("i", $turma_id);
     $stmt->execute();
@@ -16,7 +16,7 @@ if (isset($_GET['turma_id'])) {
         while ($row = $result->fetch_assoc()) {
             echo "<li>";
             echo "<label>";
-            // Inputs de presença (radio buttons)
+            // Inputs de presença 
             echo "<input type='radio' name='presenca[" . $row['id'] . "]' value='P' required> Presente";
             echo "<input type='radio' name='presenca[" . $row['id'] . "]' value='F' required> Faltou";
             echo " " . htmlspecialchars($row['nome']);

@@ -1,6 +1,6 @@
 body {
-  background-color: #2f2841;
-  color: #ffffff;
+  background-color: rgb(185, 185, 185);
+  color: #ffd700;
   font-family: 'Noto Sans', sans-serif;
   margin: 0;
   padding-top: 80px;
@@ -8,8 +8,8 @@ body {
 
 /* HEADER */
 header {
-  background-color: #2f2841;
-  color: #00ff88;
+  background-color: #222;
+  color: #ffd700;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,6 +21,11 @@ header {
   left: 0;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   font-family: 'Noto Sans', sans-serif;
+  z-index: 1000;
+}
+
+header input[type="radio"] {
+  display: none;
 }
 
 header .logo {
@@ -32,6 +37,8 @@ header .user-area {
   align-items: center;
   justify-content: space-between;
   width: 58%;
+  position: relative;
+  z-index: 10;
 }
 
 header .user-info {
@@ -40,10 +47,10 @@ header .user-info {
 }
 
 header .logout-button {
-  background-color: #00ff8052;
-  border: 2px solid #00ff88;
+  background-color: #ffd700;
+  border: 2px solid #ffd700;
   font-size: 14px;
-  color: #00ff88;
+  color: black;
   padding: 5px 15px;
   border-radius: 5px;
   cursor: pointer;
@@ -52,9 +59,28 @@ header .logout-button {
 }
 
 header .logout-button:hover {
-  background-color: #00ff88;
-  color: #2f2841;
+  background-color: black;
+  color: #ffd700;
 }
+
+.back-button {
+  background-color: #ffd700;
+  border: 2px solid #ffd700;
+  padding: 5px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  color: black;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin-left: 65vh;
+}
+
+.back-button:hover {
+  background-color: black;
+  color: #ffd700;
+}
+
+
 
 .container {
   width: 80%;
@@ -67,13 +93,15 @@ header .logout-button:hover {
 }
 
 ul {
-  list-style-type: none;
-  padding: 0;
-  
+  margin-top: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  width: 50%;
 }
 
 ul li {
-  background: #00ff8052;
+  background: grey;
   padding: 15px;
   margin: 10px 0;
   border-radius: 5px;
@@ -86,9 +114,66 @@ ul li a {
   font-size: 18px;
   font-weight: bold;
   display: block;
+  box-sizing: border-box;
 }
 
-ul li:hover {
-  background: #00ff88;
+a:hover {
+  color: black;
 }
 
+
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    flex-direction: row;
+  }
+
+  header .logo {
+    height: 100px;
+  }
+
+  header .user-info {
+    font-size: 20px;
+  }
+
+  header .buttons-area {
+    position: static;
+    margin-left: auto;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  ul li {
+    width: 100%;
+    padding: 10px;
+  }
+
+  ul li a {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  header .logo {
+    height: 80px;
+  }
+
+  header .user-info {
+    font-size: 16px;
+  }
+
+  header .logout-button, .back-button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  ul li {
+    padding: 8px;
+  }
+
+  ul li a {
+    font-size: 14px;
+  }
+}
