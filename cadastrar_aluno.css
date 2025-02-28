@@ -1,5 +1,5 @@
 body {
-  background-color: white;
+  background-color: rgb(185, 185, 185);
   color: #ffd700;
   font-family: 'Noto Sans', sans-serif;
   margin: 0;
@@ -8,13 +8,13 @@ body {
 
 /* HEADER */
 header {
-  background-color: #222;
-  color: #ffd700;
+  background-color: #0d0d0d;
+  color: #eff0f3;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 10px 20px;
-  width: 100%;
+  width: 98%; 
   height: 70px;
   position: fixed;
   top: 0;
@@ -22,96 +22,94 @@ header {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   font-family: 'Noto Sans', sans-serif;
   z-index: 1000;
-}
-
-header input[type="radio"] {
-  display: none;
+  overflow: hidden; 
 }
 
 header .logo {
   height: 130px;
+  max-width: 100%; 
 }
 
 header .user-area {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 58%;
-  position: relative;
-  z-index: 10;
-}
-
-header .user-info {
-  font-size: 25px;
+  flex-grow: 1; 
+  text-align: center; 
+  font-size: 22px; 
   font-weight: bold;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
 }
 
-header .logout-button {
-  background-color: #ffd700;
-  border: 2px solid #ffd700;
+header .buttons {
+  display: flex;
+  gap: 5px; 
+  margin-left: 10px; 
+}
+
+header .logout-button,
+header .back-button {
+  background-color: #ff8e3c;
+  border: 2px solid #ff8e3c;
   font-size: 14px;
-  color: black;
-  padding: 5px 15px;
+  color: #0d0d0d;
+  padding: 5px 12px; 
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
-  margin-right: 45px;
+  white-space: nowrap; 
+  min-width: 0; 
+  max-width: 60px; 
 }
 
-header .logout-button:hover {
-  background-color: black;
-  color: #ffd700;
-}
-
-.back-button {
-  background-color: #ffd700;
-  border: 2px solid #ffd700;
-  padding: 5px 15px;
-  font-size: 14px;
-  cursor: pointer;
-  color: black;
-  border-radius: 5px;
-  transition: 0.3s;
-  margin-left: 65vh;
-}
-
-.back-button:hover {
-  background-color: black;
-  color: #ffd700;
+header .logout-button:hover,
+header .back-button:hover {
+  background-color: #0d0d0d;
+  color: #ff8e3c;
 }
 
 h2 {
-  justify-self: center;
-  margin-top: 10%;
+  font-size: 24px;
+  color: #0d0d0d;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 90px;
 }
 
 form {
-  background-color: grey;
-  display: flex;
-  flex-direction: column;
+  background-color: #ffffff;
   border-radius: 10px;
-  padding: 20px;
-  width: 30%;
-  margin: 20px auto;
+  padding: 30px;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 50px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 label {
-  color: black;
-  margin-top: 5px;
-  padding: 5px;
   font-size: 18px;
-  display: block;
+  display: flex;
+  margin-top: 10px;
   margin-bottom: 10px;
+  color: #ff8e3c;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: #0d0d0d;
+  color: #eff0f3;
+  outline: none;
 }
 
 button {
-  background-color: white;
-  size: 20px;
   margin-top: 15px;
-  color: black;
-  font-size: 15px;
-  padding: 10px 10px;
+  background-color: #ff8e3c;
+  color: #0d0d0d;
+  font-size: 18px;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -119,10 +117,71 @@ button {
 }
 
 button:hover {
-  background-color: #00ff88;
+  background-color: #d9376e;
 }
 
 input {
-  margin-bottom: 5px;
-  font-size: 16px;
+  width: 100%;
+}
+
+
+@media (max-width: 768px) {
+  header {
+    padding: 10px 15px; 
+  }
+
+  header .logo {
+    height: 40px; 
+  }
+
+  header .user-area {
+    font-size: 18px; 
+  }
+
+  header .buttons {
+    gap: 3px; 
+  }
+
+  header .logout-button,
+  header .back-button {
+    padding: 5px 10px;
+    font-size: 12px;
+    max-width: 50px; 
+  }
+}
+
+
+@media (max-width: 480px) {
+  header {
+    height: auto; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    padding: 10px; 
+  }
+
+  header .logo {
+    margin-right: 0; 
+    margin-bottom: 5px; 
+  }
+
+  header .user-area {
+    font-size: 16px; 
+    margin-bottom: 5px; 
+    width: 100%; 
+    text-align: left; 
+  }
+
+  header .buttons {
+    flex-direction: row; 
+    gap: 5px;
+    width: 100%; 
+    justify-content: flex-end; 
+  }
+
+  header .logout-button,
+  header .back-button {
+    padding: 4px 8px; 
+    font-size: 10px;
+    max-width: 40px;
+  }
 }

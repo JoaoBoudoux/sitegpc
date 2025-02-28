@@ -21,14 +21,14 @@ $turmas_query = $conn->query("SELECT id, nome FROM turmas");
 </head>
 <body>
 
-<header>
-    <img src="planetinha.png" alt="Logo do Colégio" class="logo">
-    <div class="user-area">
-        <span class="user-info">Bem-vindo: <?php echo $_SESSION['login']; ?></span>
+    <header>
+    <img src="planetinha.png" alt="Logo" class="logo">
+    <div class="user-area">Bem-vindo: <?php echo $_SESSION['login']; ?></div>
+    <div class="buttons">
         <button onclick="window.location.href='coordenador.php'" class="back-button">Voltar</button>
         <button class="logout-button" onclick="window.location.href='logout.php'">Sair</button>
     </div>
-</header>
+    </header>
 
 <h2>Cadastrar Novo Aluno</h2>
 

@@ -140,14 +140,14 @@ $conn->close();
 </head>
 <body>
 
-<header>
-    <img src="planetinha.png" alt="Logo do Colégio" class="logo">
-    <div class="user-area">
-        <span class="user-info">Bem-vindo: <?php echo $_SESSION['login']; ?></span>
+    <header>
+    <img src="planetinha.png" alt="Logo" class="logo">
+    <div class="user-area">Bem-vindo: <?php echo $_SESSION['login']; ?></div>
+    <div class="buttons">
         <button onclick="window.location.href='coordenador.php'" class="back-button">Voltar</button>
         <button class="logout-button" onclick="window.location.href='logout.php'">Sair</button>
     </div>
-</header>
+    </header>
 
 <h2>Baixar relatórios</h2>
 
@@ -159,9 +159,8 @@ $conn->close();
         <option value="turmas">Turmas</option>
         <option value="alunos">Alunos</option>
         <option value="presencas">Presenças</option>
-        <option value="avaliacoes_professores">Avaliação dos Professores</option>
     </select>
-    <button type="submit" class="botaobaixar">Baixar</button>
+    <button type="submit">Baixar</button>
 </form>
 
 <!-- relatório específico -->
@@ -205,7 +204,7 @@ $conn->close();
         <option value="">Selecione um Aluno</option>
     </select>
 
-    <button type="submit" class="botaobaixar">Baixar Relatório</button>
+    <button type="submit">Baixar Relatório</button>
 </form>
 
 <script>

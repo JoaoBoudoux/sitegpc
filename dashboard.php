@@ -48,16 +48,16 @@ if (isset($_POST['turma'])) {
 </head>
 <body>
     <header>
-        <img src="planetinha.png" alt="Logo do Colégio" class="logo">
-        <div class="user-area">
-            <span class="user-info">Bem-vindo: <?php echo $_SESSION['login']; ?></span>
-            
+    <img src="planetinha.png" alt="Logo" class="logo">
+    <div class="user-area">Bem-vindo: <?php echo $_SESSION['login']; ?></div>
+    <div class="buttons">
+
             <?php if (isset($_SESSION["tipo"]) && $_SESSION["tipo"] === "coordenador") : ?>
                 <button class="back-button" onclick="window.location.href='coordenador.php'">Voltar</button>
             <?php endif; ?>
 
-            <button class="logout-button" onclick="window.location.href='logout.php'">Sair</button>
-        </div>
+        <button class="logout-button" onclick="window.location.href='logout.php'">Sair</button>
+    </div>
     </header>
     <div class="container">
 
@@ -155,7 +155,7 @@ if (isset($_POST['turma'])) {
 
                 if (turmaId) {
                     var xhr = new XMLHttpRequest();
-                    xhr.open("POST", "buscar_alunos.php", true);
+                    xhr.open("POST", "buscar_alunos_presenca.php", true);
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
                     xhr.onreadystatechange = function() {
@@ -343,7 +343,7 @@ if (isset($_POST['turma'])) {
                     ?>
                 </tbody>
             </table>
-            <button class="botao-diario" type="submit">Continuar</button>
+            <button type="submit">Continuar</button>
         </form>
     </div>
 
@@ -373,7 +373,7 @@ if (isset($_POST['turma'])) {
                 </tr>
             </tbody>
         </table>
-        <button type="submit" class="btn-planejamento">Prosseguir</button>
+        <button type="submit">Prosseguir</button>
     </form>
     </div>
 
