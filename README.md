@@ -1,10 +1,10 @@
-Aqui está um dos meus melhores projetos. Um colégio entrou em contato comigo solicitando um site/painel para facilitar a vida de seus professores.
+Aqui está um dos meus melhores projetos. Um colégio entrou em contato comigo solicitando um site/dashboard para facilitar a vida de seus profissionais.
 
-Os professores tem as seguintes funcionalidades : Relatório Diario, Presença, Relatório Estudantil, Diário de Classe e Planejamento anual.
+Os profissionais tem as seguintes funcionalidades : Relatório Diario, Presença, Relatório Estudantil, Diário de Classe, Planejamento anual e Planejamento Bimestral.
 
-O site conta com um sistema de login e integração com um banco de dados onde se armazenam as informações dos alunos. (Todos os dados nesse github são ficticios, apenas para demonstração).
+O site conta com um sistema de login e integração com um banco de dados onde se armazenam as informações dos alunos.
 
-Não colocarei nomes nem dados de professores reais para não comprometer informações pessoais do colégio, porém o codigo está disponivel para aprendizado de quem desejar.
+Não contém nomes nem dados dos profissionais para não comprometer suas informações pessoais, porém o codigo está disponivel para aprendizado de quem desejar.
 
 Qualquer duvida entrar em contato comigo pelo Linkedin. (Link no meu Profile)
 
